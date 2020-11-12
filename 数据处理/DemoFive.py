@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from sklearn.datasets import load_iris
@@ -10,6 +11,9 @@ plt.rcParams['axes.unicode_minus']=False
 data = pd.read_csv('D:\学习笔记\机器学习与数据挖掘\iris.csv',encoding='gbk',header=None,
                    names=['a','b','c','d','type'])
 pd.set_option('display.width',None)
+
+sns.boxplot(x='type', y='a', data=data)
+plt.show()
 
 data['type'].loc[data['type'] == 'Iris-setosa'] = 0
 data['type'].loc[data['type'] == 'Iris-versicolor'] = 1
@@ -54,7 +58,3 @@ plt.scatter(blue_x, blue_y, c='b', marker='D')
 plt.scatter(green_x, green_y, c='g', marker='.')
 
 plt.show()
-
-
-
-
